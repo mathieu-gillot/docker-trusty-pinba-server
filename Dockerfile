@@ -1,10 +1,10 @@
-FROM ubuntu:trusty
+FROM debian:wheezy
 MAINTAINER mgillot@optimy.com
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV LC_ALL en_US.UTF-8
-ENV LANGUAGE en_US:en
+ENV DEBIAN_FRONTEND noninteractive RUN apt-get upgrade -y
+RUN wget -qO - http://www.dotdeb.org/dotdeb.gpg | apt-key add -
+ADD dotdeb.list /etc/apt/sources.list.d/doteb.list
+RUN apt-get clean
+RUN apt-get update
 
-# install dependencies
-RUN apt-get install -y --force-yes pinba-engine-mysql-5.5
-EXPOSE 30002
+RUN apt-get install pinba-mysql-5.5
