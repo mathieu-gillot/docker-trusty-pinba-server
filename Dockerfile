@@ -2,8 +2,8 @@ FROM debian:wheezy
 MAINTAINER mgillot@optimy.com
 
 ENV DEBIAN_FRONTEND noninteractive RUN apt-get upgrade -y
-RUN deb http://packages.dotdeb.org wheezy all
-RUN deb-src http://packages.dotdeb.org wheezy all
+RUN echo "deb http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list
+RUN echo "deb-src http://packages.dotdeb.org wheezy all" | tee -a /etc/apt/sources.list
 RUN wget https://www.dotdeb.org/dotdeb.gpg
 RUN apt-key add dotdeb.gpg
 RUN apt-get update
