@@ -5,7 +5,7 @@
 
 ## Run using
 ```
-docker run -p 8306:3306 -p 30002:30002/udp tony2001/pinba
+docker run -p 8306:3306 -p 30002:30002/udp matgillot/pinba-server
 ```
 
 ## Connect using
